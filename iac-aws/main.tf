@@ -1,4 +1,4 @@
 module "s3" {
   source         = "./modules/s3"
-  s3_bucket_name = "s3_iac-bucket"
+  s3_bucket_name = "s3iac-bucket"
 }
