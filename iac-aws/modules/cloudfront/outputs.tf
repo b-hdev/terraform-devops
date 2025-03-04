@@ -6,7 +6,7 @@ output "cdn_id" {
 }
 
 output "cdn_domain_name" {
-  value = aws_cloudfront_distribution.cloudfront.domain_name
+  value = data.aws_cloudfront_distribution.cloudfront.domain_name
   sensitive = false
   description = "CloudFront domain name"
   

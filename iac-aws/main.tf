@@ -7,8 +7,8 @@ module "s3" {
 }
 
 module "cloudfront" {
-  source = "./modules/cloudfront"
-  origin_id = module.s3.bucket_id
+  source             = "./modules/cloudfront"
+  origin_id          = module.s3.bucket_id
   bucket_domain_name = module.s3.bucket_domain_name
 
   cdn_price_class = "PriceClass_200"
@@ -16,14 +16,14 @@ module "cloudfront" {
     Iac = true
   }
 
-  depends_on = [ 
+  depends_on = [
     module.s3
   ]
 }
 
 module "sqs" {
-  source = "terraform-aws-modules/sqs/aws"
-  name = "s3iac-sqs"
+  source     = "terraform-aws-modules/sqs/aws"
+  name       = "s3iac-sqs"
   create_dlq = true
   tags = {
     Iac = true
